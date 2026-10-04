@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --main_color: #322B33;
+    --group_color: #423843;
+    --button_color: #E1B1EB;
+    --groupL2_color: #504452;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    color: white;
+    font-family: "inter", sans-serif;
+    background: #1e1e1e;
+    margin-inline: auto;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 8px;
+    font-weight: 400;
+}
+
+.main {
+    padding-inline: 2.77777777%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    background-color: var(--main_color);
+}
+
+.horizontal_switch {
+    display: flex;
+    align-items: center;
+}
+
+.switch-group, .switch-week{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background: var(--group_color);
+    border-radius: 100px;
+}
+
+.switch-group_button, .switch-week_button{
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    background: var(--button_color);
+    border: none;
+    margin: 10px;
+    width: 10%;
+    height: 66%;
+    border-radius: 100px;
+}
+
+.switch-group_h2 .switch-week_h2{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.day {
+    background: var(--main_color);
+}
+
+.day_container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 30px;
+    background: var(--group_color);
+}
+
+.lecture_container {
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.lecture_number {
+    text-align: center;
+    width: 3%;
+    padding: 6px;
+    border-radius: 20px;
+    background: var(--groupL2_color);
+}
+
+.lecture {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.practical {
+    width: 40%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 20px;
+    background: var(--groupL2_color);
+}
+
+.lecture_info {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.switch-day_container{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 30px;
+    background: var(--groupL2_color);
+    border-radius: 0px 30px 30px 0px;
+}
+
+.switch-day_button {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: var(--button_color);
+    border: none;
+    width: 66%;
+    height: 7%;
+    text-align: center;
+    border-radius: 100px;
+}
+
+.switch-day_title {
+    writing-mode: vertical-rl;
+}

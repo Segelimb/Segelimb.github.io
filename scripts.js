@@ -1,0 +1,58 @@
+const days = [
+            'Понедельник',
+            'Вторник',
+            'Среда',
+            'Четверг',
+            'Пятница',
+            'Суббота'
+        ];
+
+        const button_up = document.getElementById('button_day-up');
+        const button_down = document.getElementById('button_day-down');
+
+        const today = new Date();
+
+        var indexDay = 0;
+        console.log(today.getDay())
+        if (today.getDay() == 0) indexDay = 5;
+        else indexDay = today.getDay() - 1;
+
+
+        var Schedule = [];
+        var app = "https://script.google.com/macros/s/AKfycbzBJdLEHsBqCy0UH2xFMQvo5s83EHX-jsBZNVIELckjMFKw1Ew6JlBrB5Zpgo4IENf3/exec",
+        xhr = new XMLHttpRequest();
+        xhr.open('GET', app);
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status == 200) {
+            try {
+                var r = JSON.parse(xhr.responseText);
+                Schedule = r["result"];
+                updateTable();
+            } catch(e) {}
+        }
+        }
+        xhr.send()
+
+        function updateTable ()
+        {
+            document.getElementById('day_of_week').innerText = days[indexDay];
+            for (var i = 0; i < 7; i++) {
+                document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexDay][0 + (2 * i)];
+                document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexDay][1 + (2 * i)];
+            }
+        }
+
+        button_up.addEventListener('click', function() {
+        if (indexDay > 0 ){
+            indexDay--;
+            updateTable();
+        }
+        });
+        button_down.addEventListener('click', function() {
+        if (indexDay < 5 ){
+            indexDay++;
+            updateTable();
+        }
+        });
