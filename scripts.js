@@ -44,13 +44,26 @@ const days = [
             document.getElementById('group_title').innerText = Schedule[indexGroup][0];
             document.getElementById('day_of_week').innerText = days[indexDay];
             for (var i = 0; i < 7; i++) {
-                document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][0][0];
-                document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][0][1];
-                document.getElementById(`lecture${i + 1}_auditorium`).innerText = Schedule[indexGroup][indexDay + 1][i][0][2];
-                document.getElementById(`practical${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][1][0];
-                document.getElementById(`practical${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][1][1];
-                document.getElementById(`practical${i + 1}_auditorium`).innerText = Schedule[indexGroup][indexDay + 1][i][1][2];
-            }
+                if (Object.keys(Schedule[indexGroup][indexDay + 1][i]).length == 2)
+                {
+                    document.getElementById(`practical${i + 1}_1`).style.width = '40%';
+                    document.getElementById(`practical${i + 1}_2`).style.display = 'flex';
+                    document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][0][0];
+                    document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][0][1];
+                    document.getElementById(`lecture${i + 1}_auditorium`).innerText = Schedule[indexGroup][indexDay + 1][i][0][2];
+                    document.getElementById(`practical${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][1][0];
+                    document.getElementById(`practical${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][1][1];
+                    document.getElementById(`practical${i + 1}_auditorium`).innerText = Schedule[indexGroup][indexDay + 1][i][1][2];
+                }
+                else
+                {
+                    document.getElementById(`practical${i + 1}_1`).style.width = '87%';
+                    document.getElementById(`practical${i + 1}_2`).style.display = 'none';
+                    document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][0];
+                    document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][1];
+                    document.getElementById(`lecture${i + 1}_auditorium`).innerText = Schedule[indexGroup][indexDay + 1][i][2];
+                }
+                }
         }
 
         button_up.addEventListener('click', function() {
