@@ -16,13 +16,13 @@ const days = [
         const today = new Date();
 
         var indexDay = 0;
-        var indexGroup = 14;
+        var indexGroup = 11;
         if (today.getDay() == 0) indexDay = 5;
         else indexDay = today.getDay() - 1;
 
 
         var Schedule = [];
-        var app = "https://script.google.com/macros/s/AKfycbzBJdLEHsBqCy0UH2xFMQvo5s83EHX-jsBZNVIELckjMFKw1Ew6JlBrB5Zpgo4IENf3/exec",
+        var app = "https://script.google.com/macros/s/AKfycbyZ8K5_sD-c7Zfi2f6MomHbG5bknZYU3E49txmfpLvpwLwGEpyOSg6tc5hfAx4dRByn/exec",
         xhr = new XMLHttpRequest();
         xhr.open('GET', app);
         xhr.onreadystatechange = function() {
