@@ -46,7 +46,7 @@ const days = [
             for (var i = 0; i < 7; i++) {
                 if (Object.keys(Schedule[indexGroup][indexDay + 1][i]).length == 2)
                 {
-                    document.getElementById(`practical${i + 1}_1`).style.width = '40%';
+                    document.getElementById(`practical${i + 1}_1`).style.width = '43%';
                     document.getElementById(`practical${i + 1}_2`).style.display = 'flex';
                     document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][0][0];
                     document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][0][1];
@@ -57,7 +57,7 @@ const days = [
                 }
                 else
                 {
-                    document.getElementById(`practical${i + 1}_1`).style.width = '87%';
+                    document.getElementById(`practical${i + 1}_1`).style.width = '100%';
                     document.getElementById(`practical${i + 1}_2`).style.display = 'none';
                     document.getElementById(`lecture${i + 1}_title`).innerText = Schedule[indexGroup][indexDay + 1][i][0];
                     document.getElementById(`lecture${i + 1}_lecturer`).innerText = Schedule[indexGroup][indexDay + 1][i][1];

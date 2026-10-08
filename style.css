@@ -106,9 +106,17 @@ p {
     justify-content: space-between;
 }
 
-.practical {
-    width: 40%;
+.lesson {
+    align-items: center;
     height: 75%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.practical {
+    width: 43%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
