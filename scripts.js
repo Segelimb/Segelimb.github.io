@@ -7,16 +7,15 @@ const days = [
             'Суббота'
         ];
 
+        const select = document.getElementById('group');
+
         const button_up = document.getElementById('button_day-up');
         const button_down = document.getElementById('button_day-down');
-
-        const button_group_up = document.getElementById('button_group-up');
-        const button_group_down = document.getElementById('button_group-down');
 
         const today = new Date();
 
         var indexDay = 0;
-        var indexGroup = 11;
+        var indexGroup = getCookie('group') || 0;
         if (today.getDay() == 0) indexDay = 5;
         else indexDay = today.getDay() - 1;
 
@@ -32,16 +31,25 @@ const days = [
             try {
                 var r = JSON.parse(xhr.responseText);
                 Schedule = r["result"];
+                updateGroup();
                 updateTable();
             } catch(e) {}
         }
         }
         xhr.send()
 
+        function updateGroup ()
+        {
+            for (var i = 0; i < Object.keys(Schedule).length; i++) {
+                document.getElementById("group").add(new Option(Schedule[i][0], i));
+            }
+            const group = document.getElementById('group');
+            group.value = indexGroup;
+        }
+
         function updateTable ()
         {
             console.log(Schedule);
-            document.getElementById('group_title').innerText = Schedule[indexGroup][0];
             document.getElementById('day_of_week').innerText = days[indexDay];
             for (var i = 0; i < 7; i++) {
                 if (Object.keys(Schedule[indexGroup][indexDay + 1][i]).length == 2)
@@ -66,6 +74,12 @@ const days = [
                 }
         }
 
+        select.addEventListener('change', event=> {
+            indexGroup = event.target.value;
+            setCookie('group', indexGroup);
+            updateTable();
+        });
+
         button_up.addEventListener('click', function() {
         if (indexDay > 0 ){
             indexDay--;
@@ -79,15 +93,16 @@ const days = [
         }
         });
 
-        button_group_up.addEventListener('click', function() {
-        if (indexGroup > 0 ){
-            indexGroup--;
-            updateTable();
+        function setCookie(name, value, days = 365) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = `${name}=${encodeURIComponent(value)};${expires};path=/;SameSite=Lax`;
         }
-        });
-        button_group_down.addEventListener('click', function() {
-        if (indexGroup < (Object.keys(Schedule).length - 1)){
-            indexGroup++;
-            updateTable();
+
+        function getCookie(name) {
+            const matches = document.cookie.match(
+            new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+            );
+            return matches ? decodeURIComponent(matches[1]) : null;
         }
-        });

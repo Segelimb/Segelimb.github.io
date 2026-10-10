@@ -73,6 +73,19 @@ p {
     font-weight: 600;
 }
 
+.group {
+    margin: 10px;
+    font-family: "inter", sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    border: none;
+    border-radius: 100px;
+    background: var(--group_color);
+}
+
 .day {
     background: var(--main_color);
 }
