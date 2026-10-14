@@ -58,8 +58,8 @@ const days = [
 
     function updateWeek ()
     {
-        document.getElementById("button_week").innerHTML = Schedule[0][0];
-        document.getElementById("button_week2").innerText = Schedule[0][1];
+        document.getElementById("button_week").innerHTML = (Schedule[0][0].slice(0, 10) + "<wbr>" + Schedule[0][0].slice(10));
+        document.getElementById("button_week2").innerHTML = (Schedule[0][1].slice(0, 10) + "<wbr>" + Schedule[0][1].slice(10));
         if (Object.keys(Schedule[0].length) == 1)
         {
             document.getElementById("button_week").className = "button_week";
