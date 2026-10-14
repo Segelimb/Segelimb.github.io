@@ -47,30 +47,29 @@ p {
     align-items: center;
 }
 
+.button_week {
+    font-family: "inter", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    background: var(--group_color);
+    padding: 7px;
+    margin: 5px;
+    border-radius: 100px;
+}
+
+.button_week.active {
+    background: var(--groupL2_color);
+}
+
 .switch-group, .switch-week{
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background: var(--group_color);
     border-radius: 100px;
-}
-
-.switch-group_button, .switch-week_button{
-    font-size: 12px;
-    font-weight: 600;
-    color: white;
-    background: var(--button_color);
-    border: none;
-    margin: 10px;
-    width: 10%;
-    height: 66%;
-    border-radius: 100px;
-}
-
-.switch-group_h2 .switch-week_h2{
-    font-size: 40px;
-    font-weight: 600;
 }
 
 .group {
